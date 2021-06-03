@@ -1,15 +1,14 @@
-<link rel="stylesheet" type="text/css" media="all" href="./style.css" />
 # Les réseaux de neurones pour l'image expliqués simplement
 
 Cet article s'inspire d'une présentation que j'ai donnée à une classe de 3ème, dans l'objectif de leur faire comprendre comment l'étude du cerveau et des neurones permet de résoudre des problèmes en analyse d'image d'apparence complexes. Nous verrons que le seul prérequis est la maîtrise de l'addition et la multiplication. Les réseaux de neurones informatiques ne font rien de plus!
 
-![alt text](./cerveau-humain-type-neurone-1024x640-853x640.jpg)
+![alt text](./images/cerveau-humain-type-neurone-1024x640-853x640.jpg)
 
 ## Introduction
 On modélise la réalité en vu de simuler un phénomène physique réel et souvent complexe.
 On utilise des modèles pour leur pouvoir prédictif, pour répondre à des questions. Va t-il pleuvoir dans l’heure? La route pour rentrer chez moi sera dégagée? Le pont va t-il s'écrouler? La courbe du chômage va t-elle descendre?
 
-![alt text](./modelisations.png)
+![alt text](./images/modelisations.png)
 
 Ces modèles résolvent des équations qui décrivent le système à modéliser. Quand la solution des ces équations est inconnues, les ingénieurs font des approximations, ou bien découpent le système en petit bouts (spatial, temporel...) sur lesquels un calcul est possible.
 
@@ -17,7 +16,7 @@ Pour la classe de problème qui va faire l'objet de cet article, c'est à dire l
 
 Par exemple; dans les images ci dessous, comment trouver des équations, des modèles qui répondent à ces questions? Combien de pièces de monnaies? A qui est cette langue? Ce cerveau est-il atteint d'une tumeur? Comment le visage de cet enfant va évoluer?
 
-![alt text](./modelisations_images.png)
+![alt text](./images/modelisations_images.png)
 
 Ces questions se sont posées depuis l'apparition des premiers ordinateurs dans les années 1980, capables de stocker des images :floppy_disk:. Les scientifiques à cette époque, ont imaginés toute sorte de modélisation, avec beaucoup de traitement d'image afin de construire des règles simples. Par exemple, dans le domaine de reconnaissance faciale, des dizaines d'équipes de recherche, se sont employées à trouver les yeux, le nez, les oreilles, puis à comparer des distances entre eux pour identifier l'individu.
 
@@ -51,14 +50,14 @@ Chacune de ces zones est composée de **neurones** et agissent comme des petits 
 
 Leur jeu préféré est de se transmettre de l'information via des signaux électriques, puis de **l'amplifier** ou de **l'atténuer**. ils possèdent deux types de prolongements bien particuliers qui les distinguent des autres cellules.
 
-![alt text width="30"](./330px-Neurone_biologique.JPG)
+![alt text width="30"](./images/330px-Neurone_biologique.JPG)
 
 1. Les dendrites, qui se divisent comme les branches d'un arbre, recueillent l'information et l'acheminent vers le corps de la cellule.
 
 2. L'axone, généralement très long et unique. Cet axone conduit l'information du corps cellulaire vers d'autres neurones avec qui il fait des connexions appelées synapses. Les axones peuvent aussi stimuler directement d'autres types de cellules, comme celles des muscles ou des glandes.
 
 Le neurone de base peut donc être modélisé de cette manière. Soit *x1*, *x2* et *x3*. l'intensité du signal électrique des dendrites et *y* celui à sortie du synapse. Notre neurone possède des poids *w1*, *w2* et *w3* qui augment ou diminuent les intensités *x*. Enfin le signal résultant *z* est filtré s'il n'est pas assez grand. Dans le cas contraire, le neurone est dans un état **excité** et sa sortie *Y* est non nulle.
-![alt text width="30"](./neurone_info.png)
+![alt text width="30"](./images/neurone_info.png)
 
 Ces neurones, proposés dès 1958 sont les plus simples à comprendre et à modéliser. En informatique, lorsqu'ils sont disposés côte à côte, il forme ce qu'on appelle **une couche dense**. Voyons à présent comment fonctionnent les neurones chargé de la vision.
 
@@ -72,7 +71,7 @@ Le traitement de l’image par le système nerveux devient alors possible et il 
 
 Dans la rétine se situe des neurones spécialisés dans des tâches simples et localisés. Ils sont excités quand leurs champs récepteurs, c'est à dire des cellules photoréceptrices proches, sont elles même stimulée par la portion d'image projetée à travers le cristallin (sorte de lentille).
 
-![alt text](./shema_vision.png)
+![alt text](./images/shema_vision.png)
 
 Admettons que vous soyez au musée devant un tableau composé d'un ovale rouge sur fond bleu en haut à droite, et d'un disque vert sur fond rouge en bas à gauche. Sur votre rétine des points rouge sur fond bleu apparaissent, ce qui excite des neurones spécialisés à reconnaître ce motif à cet endroit. Les stimulis résultants de ces neurones composent à leur tour le champ récepteur des neurones de la couche suivante dans le cortex visuel.
 
@@ -86,7 +85,7 @@ D'abord, il est primordial de bien comprendre ce qu'est une image en informatiqu
 Un pixel encode l'image en trois canaux (rouge, vert et bleu) avec un nombre généralement entre 0 (l'octet 0000 0000) et 255 (l'octet 1111 1111).
 Ainsi, une photo en couleur est la superposition de trois images en niveau de gris qui portent chacune une intensité de couleur primaire!
 
-![alt text](./lena_pixel.png)
+![alt text](./images/lena_pixel.png)
 
 La photographie ci dessous est tirée d'un magasine PlayBoy de 1972. Elle a servie de test aux algorithmes de traitement d'image car elle possède des caractéristiques intéressantes, comme des régions uniformes et de textures variées.
 
@@ -103,7 +102,7 @@ Considérons un bout d'image de 8x8 pixels sur lequel un motif se dessine en noi
 
 **La réponse d'un neurone est positive** quand au moins *s* pixels coincident avec ce champ récepteur.
 
-![alt text](./reseau_conv.png)
+![alt text](./images/reseau_conv.png)
 
 Sur l'illustration ci-dessous, on donne la réponse de l'image 8x8 à travers un des filtres diagonal avec un seuil de 2.
 
@@ -117,7 +116,7 @@ Dans une image avec plus de pixels (en général plusieurs millions) et beaucoup
 
 L'idée ici est simple; on crée une couche tel que le neurone de sortie s’active seulement si au moins un neurone de son champ récepteur est excité.
 
-![alt text](./maxpool.png)
+![alt text](./images/maxpool.png)
 
 ## Modèle complet de réseau de neurone
 
@@ -137,7 +136,7 @@ Ce modèle est une succession de 4 couches:
 
 Voici le modèle avec une entrée (un rond ici) et la réponse de chaque couche. Les couches dans les boites rouges sont des convolutions et les couches dans des boites vertes sont des réductions de dimension.
 
-![alt text](./template_filled.png)
+![alt text](./images/template_filled.png)
 
 
 On peut remarquer que les filtres de la première couche discriminent les motifs diagonaux dans les 8x8 champs récepteurs de l'image. Pour un rond, on s'attend donc à avoir des signaux positifs en haut droite et en bas à gauche de la carte de réponse du premier filtre. Pour une croix, cela serait l'inverse.
