@@ -77,7 +77,7 @@ Admettons que vous soyez au musée devant un tableau composé d'un ovale rouge s
 
 Au fur et à mesure, l'image formée sur la rétine se propage dans des couches empilés de neurones; l'image est compressée en quelque sorte et cette représentation peut servir pour des tâches spécialisés comme reconnaître un objet, une personne ou un mouvement.
 
-Voyons maintenant comment imiter ces neurones avec du traitement par ordinateur. Devant des phénomènes si complexes, les chercheurs et bio-informaticiens ont simplifiés; tant mieux!
+Voyons maintenant comment imiter ces neurones avec du traitement par ordinateur. Devant des phénomènes si complexes, les chercheurs et bio-informaticiens ont simplifié; tant mieux!
 
 ### Une image informatique
 D'abord, il est primordial de bien comprendre ce qu'est une image en informatique. Contrairement aux premiers appareils photos, l'image prise d'une scène n'est pas **continue**, c'est à dire qu'elle est découpée en petits carrées. On les appelle les **pixels**.
@@ -151,10 +151,10 @@ Un modèle vierge est disponible [ici](https://github.com/victorjourne/cnn/blob/
 
 ## Conclusion
 
-Nous avons vu avec un exemple très simple comment un réseau de neurone appliqué à l'image pouvait fonctionner informatiquement. Il faut maintenant imaginer un modèle similaire avec des centaines de couches successives, beaucoup plus de filtres par couche (au moins 30) et une meilleure résolution d'image en entrée, s i possible en couleur!
+Nous avons vu avec un exemple très simple comment un réseau de neurone appliqué à l'image pouvait fonctionner informatiquement. Il faut maintenant imaginer un modèle similaire avec des centaines de couches successives, beaucoup plus de filtres par couche (au moins 30) et une meilleure résolution d'image en entrée, si possible en couleur!
 
 Vous obtiendrez un réseau profond capable de classifier des visages ou des objets.
-D'autres réseaux sur le même principe moyennant tout de même quelques modifications pourront détecter des objets en plus de les classifier.
+D'autres réseaux sur le même principe, moyennant tout de même quelques modifications pourront détecter des objets en plus de les classifier.
 
 Des architectures encore plus élaborées poussent encore plus loin les possibilités de traitement d'image; cependant elles sont bâties avec des couches similaires.
 
